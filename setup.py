@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 setup(
-    name='yadisk_direct',
+    name='wldhx.yadisk_direct',
     version='0.0.1',
     description="Get real direct links usable with tools like curl or wget for files stored in Yandex.Disk",
     long_description=open('README.rst').read(),
@@ -21,6 +21,8 @@ setup(
     install_requires=[
         'requests',
     ],
-    entry_points="""
-      # -*- Entry points: -*-
-      """, )
+    entry_points={
+        'console_scripts': [
+            'yadisk_direct = wldhx.yadisk_direct.main:main',
+        ],
+    })

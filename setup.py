@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 setup(
-    name='wldhx.yadisk_direct',
+    name='wldhx.yadisk-direct',
     version='0.0.1',
     description="Get real direct links usable with tools like curl or wget for files stored in Yandex.Disk",
     long_description=open('README.rst').read(),
@@ -14,7 +14,7 @@ setup(
     keywords='Yandex.Disk',
     author='wldhx',
     author_email='wldhx+pypi_python_org@wldhx.me',
-    url='https://gitlab.com/wldhx/yadisk_direct',
+    url='https://gitlab.com/wldhx/yadisk-direct',
     license='GPLv3',
     packages=find_packages(exclude=['examples', 'tests']),
     zip_safe=True,
@@ -23,6 +23,6 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'yadisk_direct = wldhx.yadisk_direct.main:main',
+            'yadisk-direct = wldhx.yadisk_direct.main:main',
         ],
     })

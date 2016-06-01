@@ -22,6 +22,7 @@ setup(
         'setuptools_scm',
     ],
     install_requires=[
+        'click',
         'requests',
     ],
     entry_points={

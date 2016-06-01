@@ -22,6 +22,7 @@ setup(
         'setuptools_scm',
     ],
     install_requires=[
+        'defopt',
         'requests',
     ],
     entry_points={

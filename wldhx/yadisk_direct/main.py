@@ -1,4 +1,4 @@
-import argparse
+import defopt
 import requests
 
 API_ENDPOINT = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?public_key={}'
@@ -10,16 +10,15 @@ def get_real_direct_link(sharing_link: str) -> str:
     return pk_request.json()['href']
 
 
-def main():
-    parser = argparse.ArgumentParser(description='Get real direct links usable with tools like curl or wget for files stored in Yandex.Disk.')
-    parser.add_argument('sharing_link', type=str, nargs='+',
-            help='YaDisk sharing link (like https://yadi.sk/i/LKkWupFjr5WzR)')
-    parser.add_argument('-s', '--separator', type=str, default=' ',
-            help='A string to separate output links with')
-    args = parser.parse_args()
+def main(*sharing_link: str, separator: str = ' '):
+    """Get real direct links usable with tools like curl or wget for files stored in Yandex.Disk.
 
-    print(*[get_real_direct_link(x) for x in args.sharing_link], sep=args.separator)
+    :param  sharing_link: YaDisk sharing link (like https://yadi.sk/i/LKkWupFjr5WzR)
+    :param  separator:    A string to separate output links with
+    """
+
+    print(*[get_real_direct_link(x) for x in sharing_link], sep=separator)
 
 
 if __name__ == '__main__':
-    main()
+    defopt.run(main)

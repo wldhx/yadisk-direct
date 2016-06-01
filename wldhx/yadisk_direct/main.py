@@ -10,15 +10,19 @@ def get_real_direct_link(sharing_link: str) -> str:
     return pk_request.json()['href']
 
 
-def main(*sharing_link: str, separator: str = ' '):
+def _main(*sharing_link: str, separator: str = ' '):
     """Get real direct links usable with tools like curl or wget for files stored in Yandex.Disk.
 
     :param  sharing_link: YaDisk sharing link (like https://yadi.sk/i/LKkWupFjr5WzR)
     :param  separator:    A string to separate output links with
     """
 
-    print(*[get_real_direct_link(x) for x in sharing_link], sep=separator)
+    return separator.join([get_real_direct_link(x) for x in sharing_link])
+
+
+def main():
+	print(defopt.run(_main))
 
 
 if __name__ == '__main__':
-    defopt.run(main)
+    main()

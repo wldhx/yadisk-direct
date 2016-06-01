@@ -1,4 +1,4 @@
-from sys import argv
+import argparse
 import requests
 
 API_ENDPOINT = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?public_key={}'
@@ -11,9 +11,12 @@ def get_real_direct_link(sharing_link: str) -> str:
 
 
 def main():
-    yad_url = argv[1]
+    parser = argparse.ArgumentParser(description='Get real direct links usable with tools like curl or wget for files stored in Yandex.Disk.')
+    parser.add_argument('sharing_links', type=str,
+            help='YaDisk sharing links (like https://yadi.sk/i/LKkWupFjr5WzR)')
+    args = parser.parse_args()
 
-    print(get_real_direct_link(yad_url))
+    print(get_real_direct_link(args.sharing_links))
 
 
 if __name__ == '__main__':

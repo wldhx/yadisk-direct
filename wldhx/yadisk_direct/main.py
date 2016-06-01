@@ -14,9 +14,11 @@ def main():
     parser = argparse.ArgumentParser(description='Get real direct links usable with tools like curl or wget for files stored in Yandex.Disk.')
     parser.add_argument('sharing_links', type=str, nargs='+',
             help='YaDisk sharing links (like https://yadi.sk/i/LKkWupFjr5WzR)')
+    parser.add_argument('-s', '--separator', type=str, default=' ',
+            help='A string to separate output links with')
     args = parser.parse_args()
 
-    print(*[get_real_direct_link(x) for x in args.sharing_links], sep=' ')
+    print(*[get_real_direct_link(x) for x in args.sharing_links], sep=args.separator)
 
 
 if __name__ == '__main__':

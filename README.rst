@@ -11,7 +11,7 @@ Install with:
 
 .. code:: sh
 
-    pip install wldhx.yadisk-direct
+    pip3 install wldhx.yadisk-direct
 
 Get a real direct link:
 
